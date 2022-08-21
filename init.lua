@@ -9,7 +9,7 @@ require("colorscheme")
 -- 自动命令
 require("autocmds")
 -- 插件配置
-require("plugin-config.formatter")
+-- require("plugin-config.formatter")
 require("plugin-config.nvim-tree")
 require("plugin-config.bufferline")
 require("plugin-config.lualine")
@@ -28,7 +28,7 @@ require("lsp.setup")
 require("lsp.cmp")
 require("lsp.ui")
 -- 格式化
-require("lsp.formatter")
+-- require("lsp.formatter")
 require("lsp.null-ls")
 -- DAP
 -- require("dap.vimspector")

@@ -14,7 +14,7 @@ nvim_tree.setup({
   disable_netrw = true,
   -- 不显示 git 状态图标
   git = {
-    enable = false,
+    enable = true,
   },
   -- project plugin 需要这样设置
   update_cwd = true,
@@ -24,7 +24,7 @@ nvim_tree.setup({
   },
   filters = {
     -- 隐藏 .文件
-    dotfiles = true,
+    dotfiles = false,
     -- 隐藏 node_modules 文件夹
     -- custom = { "node_modules" },
   },

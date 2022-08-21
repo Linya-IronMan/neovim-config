@@ -33,8 +33,6 @@ end
 
 packer.startup({
   function(use)
-    -- format 代码格式化工具 
-    use({ "mhartington/formatter.nvim" })
     -- markdown preview 
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     -- Packer 可以升级自己
