@@ -37,6 +37,8 @@ packer.startup({
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     -- Packer 可以升级自己
     use("wbthomason/packer.nvim")
+    use {'neoclide/coc.nvim', branch = 'release'}
+
     -------------------------- plugins -------------------------------------------
     -- nvim-tree
     use({

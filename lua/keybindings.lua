@@ -36,16 +36,17 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- 上下滚动浏览
-map("n", "<C-j>", "5j", opt)
-map("n", "<C-k>", "5k", opt)
-map("v", "<C-j>", "5j", opt)
-map("v", "<C-k>", "5k", opt)
+map("n", "<C-j>", "10j", opt)
+map("n", "<C-k>", "10k", opt)
+map("v", "<C-j>", "10j", opt)
+map("v", "<C-k>", "10k", opt)
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
-map("n", "<C-u>", "10k", opt)
-map("n", "<C-d>", "10j", opt)
+map("n", "<C-u>", "20k", opt)
+map("n", "<C-d>", "20j", opt)
 
 -- magic search
 map("n", "/", "/\\v", { noremap = true, silent = false })
+-- TODO: 好像没什么用
 map("v", "/", "/\\v", { noremap = true, silent = false })
 
 -- visual模式下缩进代码
@@ -59,12 +60,13 @@ map("v", "K", ":move '<-2<CR>gv-gv", opt)
 map("v", "p", '"_dP', opt)
 
 -- 退出
-map("n", "qq", ":q!<CR>", opt)
+-- map("n", "qq", ":q!<CR>", opt)
 map("n", "<leader>q", ":qa!<CR>", opt)
 
 -- insert 模式下，跳到行首行尾
-map("i", "<C-h>", "<ESC>I", opt)
-map("i", "<C-l>", "<ESC>A", opt)
+-- TODO: 无用，无法跳转到行首
+map("i", "<A-h>", "<ESC>I", opt)
+map("i", "<A-l>", "<ESC>A", opt)
 map("i", "jj", "<ESC>", opt)
 ------------------------------------------------------------------
 -- windows 分屏快捷键
@@ -95,8 +97,9 @@ map("n", "s,", ":vertical resize +10<CR>", opt)
 -- 上下比例
 map("n", "sj", ":resize +10<CR>", opt)
 map("n", "sk", ":resize -10<CR>", opt)
-map("n", "<C-Down>", ":resize +2<CR>", opt)
-map("n", "<C-Up>", ":resize -2<CR>", opt)
+-- Mac 下与系统快捷键冲突
+-- map("n", "<C-Down>", ":resize +2<CR>", opt)
+-- map("n", "<C-Up>", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
@@ -105,10 +108,10 @@ map("n", "<leader>ter", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
-map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
-map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
-map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
-map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+-- map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
+-- map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
+-- map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
+-- map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 map("t", "<leader>h", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<leader>j", [[ <C-\><C-N><C-w>j ]], opt)
 map("t", "<leader>k", [[ <C-\><C-N><C-w>k ]], opt)
@@ -159,15 +162,15 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
-map("n", "<leader>bc", ":Bdelete!<CR>", opt)
+-- map("n", "<leader>bc", ":Bdelete!<CR>", opt)
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
 -- map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 -- map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 -- 关闭其他标签页 close other
-map("n", "<leader>co", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
+-- map("n", "<leader>co", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
 -- 关闭选中标签页
-map("n", "<leader>ct", ":BufferLinePickClose<CR>", opt)
+-- map("n", "<leader>ct", ":BufferLinePickClose<CR>", opt)
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
@@ -198,17 +201,17 @@ pluginKeys.comment = {
   -- Normal 模式快捷键
   toggler = {
     line = "gcc", -- 行注释
-    block = "gbc", -- 块注释
+    block = "gbb", -- 块注释
   },
   -- Visual 模式
   opleader = {
-    line = "gc",
-    bock = "gb",
+    line = "gcc",
+    bock = "gbb",
   },
 }
 -- ctrl + /
-map("n", "<C-_>", "gcc", { noremap = false })
-map("v", "<C-_>", "gcc", { noremap = false })
+-- map("n", "<C-_>", "gcc", { noremap = false })
+-- map("v", "<C-_>", "gcc", { noremap = false })
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
@@ -263,6 +266,7 @@ pluginKeys.mapLSP = function(mapbuf)
 end
 
 -- typescript 快捷键
+-- TODO: 不知道什么意思
 pluginKeys.mapTsLSP = function(mapbuf)
   mapbuf("n", "gs", ":TSLspOrganize<CR>", opt)
   mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)

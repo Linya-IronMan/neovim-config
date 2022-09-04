@@ -30,7 +30,7 @@ cmp.setup({
     { name = "vsnip" },
     { name = "buffer" },
     -- For luasnip users.
-    -- { name = 'luasnip' },
+    { name = 'luasnip' },
     --For ultisnips users.
     -- { name = 'ultisnips' },
     -- -- For snippy users.
