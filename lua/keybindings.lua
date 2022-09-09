@@ -104,8 +104,8 @@ map("n", "sk", ":resize -10<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- Terminal相关
-map("n", "<leader>ter", ":sp | terminal<CR>", opt)
-map("n", "stv", ":vsp | terminal<CR>", opt)
+map("n", "<leader>terb", ":sp | terminal<CR>", opt)
+map("n", "<leader>terr", ":vsp | terminal<CR>", opt)
 -- Esc 回 Normal 模式
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 -- map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
@@ -201,17 +201,17 @@ pluginKeys.comment = {
   -- Normal 模式快捷键
   toggler = {
     line = "gcc", -- 行注释
-    block = "gbb", -- 块注释
+    block = "gbc", -- 块注释
   },
   -- Visual 模式
   opleader = {
     line = "gcc",
-    bock = "gbb",
+    bock = "gbc",
   },
 }
 -- ctrl + /
--- map("n", "<C-_>", "gcc", { noremap = false })
--- map("v", "<C-_>", "gcc", { noremap = false })
+ map("n", "<C-_>", "gcc", { noremap = false })
+ map("v", "<C-_>", "gcc", { noremap = false })
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)

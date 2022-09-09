@@ -20,8 +20,13 @@ local servers = {
   tsserver = require("lsp.config.ts"),
   rust_analyzer = require("lsp.config.rust"),
   yamlls = require("lsp.config.yamlls"),
+  volar = require("lsp.config.vue")
   -- remark_ls = require("lsp.config.markdown"),
 }
+
+lspconfig.eslint.setup {}
+
+lspconfig.volar.setup {}
 
 for name, config in pairs(servers) do
   if config ~= nil and type(config) == "table" then
